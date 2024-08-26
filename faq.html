@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <style>
+        body{
+            font-family: arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .faq-container{
+            max-width: 600px;
+            width: 100%;
+        }
+        .collapsible{
+            background-color: #f1f1f1;
+            color: #444;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .active, collapsible:hover{
+            background-color: #ccc;
+        }
+        .collapsible::after{
+            content: '>';
+            font-size: 15px;
+            color: #777;
+            margin-left: 5px;
+        }
+        .active::after{
+            transform: rotate(90deg);
+        }
+        .content{
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+
+        <button class="collapsible" aria-expanded="false">What's the meaning of communalities?</button>
+        <div class="content">
+            <p>Communalities refer to the shared or common characteristics found within a dataset or a community.</p>
+        </div>
+        <button class="collapsible" aria-expanded="false">What's the meaning of communalities?</button>
+        <div class="content">
+            <p>Communalities refer to the shared or common characteristics found within a dataset or a community.</p>
+        </div>
+        <button class="collapsible" aria-expanded="false">What's the meaning of communalities?</button>
+        <div class="content">
+            <p>Communalities refer to the shared or common characteristics found within a dataset or a community.</p>
+        </div>
+        <button class="collapsible" aria-expanded="false">What's the meaning of communalities?</button>
+        <div class="content">
+            <p>Communalities refer to the shared or common characteristics found within a dataset or a community.</p>
+        </div>
+        <button class="collapsible" aria-expanded="false">What's the meaning of communalities?</button>
+        <div class="content">
+            <p>Communalities refer to the shared or common characteristics found within a dataset or a community.</p>
+        </div>
+    </div>
+    <script>
+        var coll=document.getElementsByClassName("collapsible");
+
+        for(let i=0; i<coll.length; i++){
+            coll[i].addEventListener("click", function(){
+                this.classList.toggle("active")
+                var content=this.nextElementSibling;
+                if(content.style.maxHeight){
+                    content.style.maxHeight=null;
+                    this.setAttribute("aria-expanded", "false");
+                } else{
+                    content.style.maxHeight=content.scrollHeight + "px";
+                    this.setAttribute("aria-expanded", "true");
+                }
+            });
+            coll[i].addEventListener("keydown", function(event){
+                if(event.key==="Enter"||event.key===" "){
+                    event.preventDefault();
+                    this.click();
+                }
+            });
+        }
+    </script>
+    
+</body>
+</html>
